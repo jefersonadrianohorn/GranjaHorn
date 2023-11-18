@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sucesso no Registro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+        .success-icon {
+            color: green;
+            font-size: 48px;
+        }
+        h2 {
+            font-size: 36px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: #0074D9;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .button {
+            margin-top: 20px;
+        }
+        .meu-botao {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #0074D9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .meu-botao:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-icon">
+        <img src="check.jpg" alt="Ícone de Sucesso" height="150" width="150">
+    </div>
+    <h2>Registro efetuado com sucesso</h2>
+    <div class="button">
+        <a href="app.html" class="meu-botao">Voltar ao Início</a>
+    </div>
+
+    <script>
+        // Redirecionamento após 8 segundos
+        setTimeout(function() {
+            window.location.href = "app.html";
+        }, 8000); // 8000 milissegundos = 8 segundos
+    </script>
+</body>
+</html>

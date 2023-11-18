@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap">
+    <style>
+        /* Estilos para o cabeçalho */
+        #headerImage {
+            width: 100%;
+            height: 300px;
+            background-size: cover;
+            background-position: center center;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .title {
+            position: absolute;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 40px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Estilos para os botões */
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .button {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            text-align: center;
+            background-color: #59869b;
+            border: none;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .button img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .button-text {
+            font-family: Plus Jakarta Sans;
+            font-size: 14px;
+        }
+        h1 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            text-align: center; /* Centraliza horizontalmente */
+            line-height: 1; /* Centraliza verticalmente */
+        }
+
+    </style>
+</head>
+<body>
+    <header id="headerImage" style="background-image: url('img1.jpg');">
+        <div class="title"></div>
+        
+    </header>
+    <h1>Registrar</h1>
+    <hr>
+    <div class="button-container">
+        <a href="Form_doente.html" class="button">
+            <img src="Porco doente.svg" alt="Ícone 1">
+            <div class="button-text">Animal Doente</div>
+        </a>
+        <a href="Form_morte.html" class="button">
+            <img src="morte.svg" alt="Ícone 2">
+            <div class="button-text">Animal Morto</div>
+        </a>
+    </div>
+   
+        </a>
+    </div>
+    <hr><h1>Dados</h1>
+    <div class="button-container">
+        <a href="Home_Relatorios.html" class="button">
+            <img src="relatorio.svg" alt="Relatórios">
+            <div class="button-text">Relatórios</div>
+        </a>
+
+        <a href="dados e estatisticas .html" class="button">
+            <img src="estatisticas.png" alt="estatisticas">
+            <div class="button-text">dados e estatisticas</div>
+        </a>
+    </div>
+    
+
+    <!-- Mensagem fixa ao lado do link -->
+  
+    <script>
+        // Obtém a data e hora atual
+        const now = new Date();
+        const hour = now.getHours();
+        let greeting;
+
+        if (hour >= 5 && hour < 12) {
+            greeting = "Bom dia!";
+        } else if (hour >= 12 && hour < 18) {
+            greeting = "Boa tarde!";
+        } else {
+            greeting = "Boa noite!";
+        }
+
+        document.querySelector(".title").innerText = greeting;
+    </script>
+</body>
+</html>

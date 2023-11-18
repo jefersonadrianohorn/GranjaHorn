@@ -1,0 +1,44 @@
+<!-- ... (cabeçalho e estrutura HTML existentes) ... -->
+
+<body>
+
+    <!-- ... (conteúdo existente) ... -->
+
+    <div id="dadosDoLote">
+        <h2>Dados do Lote</h2>
+        <p>Número do Lote: <span id="numeroLote"></span></p>
+        <p>Prazo de Trabalho: <span id="prazoTrabalho"></span></p>
+        <p>Número de Animais: <span id="numeroAnimais"></span></p>
+    </div>
+
+    <!-- ... (botões existentes) ... -->
+
+    <div class="Content">
+        <div id="printable">
+            <div id="resultCount"></div>
+            <div id="dados"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fazer solicitação para carregar dados do lote
+            fetch('dados_lote.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Preencher os campos com os dados do lote
+                    document.getElementById('numeroLote').textContent = data.numeroLote;
+                    document.getElementById('prazoTrabalho').textContent = data.prazoTrabalho;
+                    document.getElementById('numeroAnimais').textContent = data.numeroAnimais;
+                })
+                .catch(error => console.error('Erro ao carregar dados do lote:', error));
+            
+            // ... (restante do seu código existente) ...
+        });
+
+        // ... (restante do seu código existente) ...
+    </script>
+
+</body>
+
+<!-- ... (fim do HTML) ... -->

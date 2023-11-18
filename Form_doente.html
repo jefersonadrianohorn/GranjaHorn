@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Identificação</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap">
+    <link rel="stylesheet" href="Form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-8IM5O3K1EckvScVeC1A3z2AqbP8jQJKDQO2V9AdW5D2xGz2CQE93nV14XuzMzBQmW3jSTnMbyvYavpN12tCTaQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   
+<body>
+    <div id="divBotaoImagem">
+    <!-- Botão com imagem que redireciona para outra página -->
+    <a id="botaoImagem" href="app.html">
+      <img src="X.png" alt="Imagem do Botão">
+    </a>
+  </div>
+    
+    <header id="headerImage" style="background-image: url('img1.jpg');">
+        <div class="title">Formulário de Identificação de Doenças</div>
+    </header>
+
+
+<form action="https://api.sheetmonkey.io/form/mrwAgJiWxJWc3mab9WRd57" method="post">
+    <label for="data">Data de Identificação:</label>
+    <input type="date" id="data" name="data" required>
+
+    <label for="sexo">Sexo do Animal:</label>
+    <select id="sexo" name="sexo" required>
+        <option value="macho">Macho</option>
+        <option value="femea">Fêmea</option>
+    </select>
+
+    <label>Granja:</label>
+    <div class="radio-group">
+        <input type="radio" id="granja1" name="granja" value="granja1" required>
+        <label for="granja1">Granja 1</label>
+    </div>
+    <div class="radio-group">
+        <input type="radio" id="granja2" name="granja" value="granja2" required>
+        <label for="granja2">Granja 2</label>
+    </div>
+
+    <label for="Doença">Doença:</label>
+    <select id="Doença" name="Doença" required>
+        <option value="Pneumonia">Pneumonia</option>
+        <option value="Diarreia">Diarreia</option>
+        <option value="Diarreia de sangue">Diarreia de sangue</option>
+        <option value="Encefalite">Encefalite</option>
+        <option value="Artrite/Mancos">Artrite/Mancos</option>
+        <option value="Prolapso/Canibalismo">Prolapso/Canibalismo</option>
+        <option value="Doença de Pele">Doença de Pele</option>
+    </select>
+
+    <label for="Medicação">Medicação Administrada:</label>
+    <div class="radio-group">
+        <input type="radio" id="sim" name="medicacao" value="sim" required>
+        <label for="sim">Sim</label>
+    </div>
+    <div class="radio-group">
+        <input type="radio" id="nao" name="medicacao" value="nao" required>
+        <label for="nao">Não</label>
+    </div>
+
+    <!-- Se a medicação for "sim", exibir tabela de medicamentos -->
+    <div id="medicacaoInfo" style="display:none;">
+        <label>Detalhes da Medicação:</label>
+        <table>
+            <thead>
+                <tr>
+                    <th>Medicamento</th>
+                    <th>Detalhes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" id="AGROPLUS" name="AGROPLUS" value="AGROPLUS">
+                        <label for="AGROPLUS">AGROPLUS</label></td>
+                    <td><div class="readonly" id="detalhes1">ampicilina+ colistina+ dexametazona</div></td>
+                </tr>
+                <tr> 
+                    <td><input type="checkbox" id="LISPEC 15%" name="LISPEC 15%" value="LISPEC 15%">
+                        <label for="LISPEC 15%"> LISPEC 15%</label></td>
+                    <td><div class="readonly" id="Lincomicina + Espectinomicina">Lincomicina + Espectinomicina
+                    </div></td>
+                </tr>
+             
+                <tr> 
+                    <td><input type="checkbox" id="MICROFLUD F" name="MICROFLUD F" value="MICROFLUD F">
+                        <label for="MICROFLUD F"> MICROFLUD F</label></td>
+                    <td><div class="readonly" id="Florfenicol">Florfenicol </div></td>
+
+                </tr>
+                <tr> 
+                    <td><input type="checkbox" id="PENFORT PPU" name="PENFORT PPU" value="PENFORT PPU">
+                        <label for="PENFORT PPU"> PENFORT PPU</label></td>
+                    <td><div class="readonly" id="Penicilina G (Procaína e Benzatina) + Dihidroestreptomicina">Penicilina G (Procaína e Benzatina) + Dihidroestreptomicina</div></td>
+                </tr>
+                
+<tr> 
+    <td><input type="checkbox" id="CORTIFLAN" name="CORTIFLAN" value="CORTIFLAN">
+        <label for="CORTIFLAN">CORTIFLAN</label></td>
+    <td><div class="readonly" id="detalhes5">Dexametasona</div></td>
+</tr>
+<!-- Continue adicionando as linhas para os medicamentos restantes -->
+<tr> 
+    <td><input type="checkbox" id="DIPIRONA 50%" name="DIPIRONA 50%" value="DIPIRONA 50%">
+        <label for="DIPIRONA 50%">DIPIRONA 50%</label></td>
+    <td><div class="readonly" id="detalhes6">Dipirona Sódica</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="ZELOTRIL PLUS" name="ZELOTRIL PLUS" value="ZELOTRIL PLUS">
+        <label for="ZELOTRIL PLUS">ZELOTRIL PLUS</label></td>
+    <td><div class="readonly" id="detalhes7">Enrofloxacina + Piroxicam</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="KINETOMAX" name="KINETOMAX" value="KINETOMAX">
+        <label for="KINETOMAX">KINETOMAX</label></td>
+    <td><div class="readonly" id="detalhes8">Enrofloxacina</div></td>
+</tr>
+<!-- ... (código anterior) ... -->
+<tr> 
+    <td><input type="checkbox" id="RESOLUTOR" name="RESOLUTOR" value="RESOLUTOR">
+        <label for="RESOLUTOR">RESOLUTOR</label></td>
+    <td><div class="readonly" id="detalhes9">Marbofloxacino</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="ROFLIN" name="ROFLIN" value="ROFLIN">
+        <label for="ROFLIN">ROFLIN</label></td>
+    <td><div class="readonly" id="detalhes10">Florfenicol</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="VETFLOGIN" name="VETFLOGIN" value="VETFLOGIN">
+        <label for="VETFLOGIN">VETFLOGIN</label></td>
+    <td><div class="readonly" id="detalhes11">Diclofenaco Sódico</div></td>
+</tr>
+<!-- Continue adicionando as linhas para os medicamentos restantes -->
+<tr> 
+    <td><input type="checkbox" id="VETRIMOXIN ADVANCE" name="VETRIMOXIN ADVANCE" value="VETRIMOXIN ADVANCE">
+        <label for="VETRIMOXIN ADVANCE">VETRIMOXIN ADVANCE</label></td>
+    <td><div class="readonly" id="detalhes12">Amoxicilina</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="DEXAFORCE" name="DEXAFORCE" value="DEXAFORCE">
+        <label for="DEXAFORCE">DEXAFORCE</label></td>
+    <td><div class="readonly" id="detalhes13">Dexametasona</div></td>
+</tr>
+<!-- ... (código anterior) ... -->
+<tr> 
+    <td><input type="checkbox" id="LACTOFUR" name="LACTOFUR" value="LACTOFUR">
+        <label for="LACTOFUR">LACTOFUR</label></td>
+    <td><div class="readonly" id="detalhes14">Ceftiofur</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="MONOVIN K" name="MONOVIN K" value="MONOVIN K">
+        <label for="MONOVIN K">MONOVIN K</label></td>
+    <td><div class="readonly" id="detalhes15">Vitamina-K</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="ÓLEO CANFORADO" name="ÓLEO CANFORADO" value="ÓLEO CANFORADO">
+        <label for="ÓLEO CANFORADO">ÓLEO CANFORADO</label></td>
+    <td><div class="readonly" id="detalhes16">Cânfora</div></td>
+</tr>
+<!-- Continue adicionando as linhas para os medicamentos restantes -->
+<tr> 
+    <td><input type="checkbox" id="PROFENAC INJETÁVEL" name="PROFENAC INJETÁVEL" value="PROFENAC INJETÁVEL">
+        <label for="PROFENAC INJETÁVEL">PROFENAC INJETÁVEL</label></td>
+    <td><div class="readonly" id="detalhes17">Cetoprofeno</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="ROBOFORT" name="ROBOFORT" value="ROBOFORT">
+        <label for="ROBOFORT">ROBOFORT</label></td>
+    <td><div class="readonly" id="detalhes18">Vitamina</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="ANABOLIC" name="ANABOLIC" value="ANABOLIC">
+        <label for="ANABOLIC">ANABOLIC</label></td>
+    <td><div class="readonly" id="detalhes19">Vitamina</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="VIRKON" name="VIRKON" value="VIRKON">
+        <label for="VIRKON">VIRKON</label></td>
+    <td><div class="readonly" id="detalhes20">Desinfetantes</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="VANTOTREX" name="VANTOTREX" value="VANTOTREX">
+        <label for="VANTOTREX">VANTOTREX</label></td>
+    <td><div class="readonly" id="detalhes21">Desinfetantes</div></td>
+</tr>
+<tr> 
+    <td><input type="checkbox" id="GERMON PLUS" name="GERMON PLUS" value="GERMON PLUS">
+        <label for="GERMON PLUS">GERMON PLUS</label></td>
+    <td><div class="readonly" id="detalhes22">Desinfetantes</div></td>
+</tr>
+
+
+
+                
+              
+            </tbody>
+        </table>
+    </div>
+
+    <input type="submit" value="Enviar Relatório">
+
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+        // Obtém a data atual no formato YYYY-MM-DD
+        var dataAtual = new Date().toISOString().split('T')[0];
+
+        // Define o valor do campo de entrada de data para a data atual
+        document.getElementById('data').value = dataAtual;
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Exibir ou ocultar tabela de medicamentos imediatamente após a mudança
+        document.querySelectorAll('input[name="medicacao"]').forEach(function (r) {
+            r.addEventListener('change', function () {
+                var medicacaoInfo = document.getElementById('medicacaoInfo');
+                medicacaoInfo.style.display = this.value === 'sim' ? 'block' : 'none';
+            });
+        });
+    });
+</script>
+</body>
+</html>

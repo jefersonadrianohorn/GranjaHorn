@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Tabela com Dados do XML Externo</title>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .data-table, .stats-table {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .data-table th, .data-table td,
+        .stats-table th, .stats-table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center; /* Centralizar o texto */
+        }
+
+        .data-table th, .stats-table th {
+            background-color: #f2f2f2;
+        }
+
+        h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        canvas {
+            display: block;
+            margin: 20px auto;
+            max-width: 400px; /* Ajustei a largura do gráfico para melhor visualização */
+        }
+
+        /* Estilos para a barra de progresso */
+        .progress-bar-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress {
+            width: 0;
+            height: 30px;
+            background-color: #4CAF50; /* Cor verde para a barra de progresso */
+            transition: width 1s ease-in-out;
+            position: relative;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="divBotaoImagem">
+            <!-- Botão com imagem que redireciona para outra página -->
+            <a id="botaoImagem" href="app.html">
+                <img src="X.png" alt="Imagem do Botão" style="width: 15px; height: 15px;">
+            </a>
+        </div>
+    </div>
+    
+<div class="container">
+    <!-- Tabela de Dados do Lote -->
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    <h3>Dados do Lote</h3>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Número do Lote:</td>
+                <td id="numeroDoLote"></td>
+            </tr>
+            <tr>
+                <td>Dias de Atividade:</td>
+                <td id="diasDeAtividade"></td>
+            </tr>
+            <tr>
+                <td>Dias corridos:</td>
+                <td id="diasCorridos"></td>
+            </tr>
+            <tr>
+                <td>Dias Restantes:</td>
+                <td id="diasRestantes"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Tabela de Estatísticas -->
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th colspan="2">
+                    <h3>Estatísticas</h3>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Número de Animais:</td>
+                <td id="numeroDeAnimais"></td>
+            </tr>
+            <tr>
+                <td>Número de Mortos:</td>
+                <td id="numeroDeMortos"></td>
+            </tr>
+            <tr>
+                <td>Número de Animais Vivos:</td>
+                <td id="numeroDeAnimaisVivos"></td>
+            </tr>
+            <tr>
+                <td>Taxa de Morte:</td>
+                <td id="taxaDeMorte"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Gráfico de Taxa de Morte -->
+    <canvas id="taxaDeMorteChart" width="400" height="200"></canvas>
+
+    <!-- Barra de Progresso -->
+    <div class="progress-bar-container">
+        <h3>Dias Corridos</h3>
+        <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+        </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Dados do XML incorporados diretamente no script
+        const xmlString = `
+            <dadosDoLote>
+                <numeroDoLote>3/2023</numeroDoLote>
+                <diasDeAtividade>115</diasDeAtividade>
+                <numeroDeAnimais>2000</numeroDeAnimais>
+                <dataInicio>2023-11-15</dataInicio>
+            </dadosDoLote>
+        `;
+
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlString, 'application/xml');
+
+        // Preencher os campos da tabela de Dados do Lote
+        document.getElementById("numeroDoLote").textContent = xmlDoc.querySelector("numeroDoLote").textContent;
+        document.getElementById("diasDeAtividade").textContent = xmlDoc.querySelector("diasDeAtividade").textContent;
+        document.getElementById("numeroDeAnimais").textContent = xmlDoc.querySelector("numeroDeAnimais").textContent;
+
+        // Calcular dias corridos
+        const dataInicio = new Date(xmlDoc.querySelector("dataInicio").textContent);
+        const dataAtual = new Date();
+        const diasCorridos = Math.floor((dataAtual - dataInicio) / (24 * 60 * 60 * 1000));
+        document.getElementById("diasCorridos").textContent = diasCorridos;
+
+        // Calcular dias restantes
+        const diasRestantes = xmlDoc.querySelector("diasDeAtividade").textContent - diasCorridos;
+        document.getElementById("diasRestantes").textContent = diasRestantes;
+
+        // Aguardar o DOM ser carregado antes de executar o restante do script
+        document.addEventListener('DOMContentLoaded', function () {
+            // Carregar dados do CSV
+            carregarDadosCSV();
+            // Função para carregar dados doCSV a cada 5 segundos
+        });
+
+        function carregarDadosCSV() {
+            // Incluir parâmetro de consulta para evitar o cache
+            const url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://docs.google.com/spreadsheets/d/e/2PACX-1vRqpMPdJXi-gI5Lwm5x3qN5Yj4yq6O1lwNP4y77nUmGLQN8Oak1X9ziimaLSHOuKboBt3MFJm5cKXKt/pub?output=csv') + '&_=' + Date.now();
+
+            fetch(url)
+                .then(response => response.text())
+                .then(csvData => {
+                    console.log('Dados CSV:', csvData);
+
+                    // Preencher o número de mortos
+                    const linhas = csvData.trim().split('\n').filter(line => line.trim() !== ''); // Remover espaços em branco
+                    const numeroDeMortos = linhas.length - 1; // Excluindo o cabeçalho
+                    document.getElementById("numeroDeMortos").textContent = numeroDeMortos;
+
+                    // Preencher o número de animais
+                    const numeroDeAnimais = parseInt(document.getElementById("numeroDeAnimais").textContent);
+
+                    // Calcular a taxa de morte
+                    const taxaDeMorte = ((numeroDeMortos / numeroDeAnimais) * 100).toFixed(2);
+                    document.getElementById("taxaDeMorte").textContent = taxaDeMorte + '%';
+
+                    // Preencher o número de animais vivos
+                    const numeroDeAnimaisVivos = numeroDeAnimais - numeroDeMortos;
+                    document.getElementById("numeroDeAnimaisVivos").textContent = numeroDeAnimaisVivos;
+
+                    // Criar o gráfico de taxa de morte (gráfico de rosca/donut)
+                    const ctxMorte = document.getElementById('taxaDeMorteChart').getContext('2d');
+                    const myChartMorte = new Chart(ctxMorte, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Animais Vivos', 'Animais Mortos'],
+                            datasets: [{
+                                data: [numeroDeAnimaisVivos, numeroDeMortos],
+                                backgroundColor: ['rgba(0, 255, 0, 0.8)', 'rgba(255, 0, 0, 0.8)'],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            cutout: '0%', // Ajusta o tamanho do furo no meio (donut)
+                            responsive: false,
+                            plugins: {
+                                legend: {
+                                    position: 'bottom'
+                                }
+                            }
+                        }
+                    });
+
+                    // Atualizar a barra de progresso e adicionar rótulos de marcadores
+                    const diasDeAtividade = parseInt(xmlDoc.querySelector("diasDeAtividade").textContent);
+                    const progresso = (diasCorridos / diasDeAtividade) * 100;
+                    document.getElementById("progress").style.width = progresso + "%";
+
+                    // Adicionar rótulos de marcadores
+                    for (let i = 1; i <= 10; i++) {
+                        const markerLabel = document.getElementById(`markerLabel${i}`);
+                        const markerPosition = (i * 10) + "%";
+                        markerLabel.textContent = Math.round((i * diasDeAtividade) / 10);
+                        markerLabel.style.left = markerPosition;
+                    }
+                })
+                .catch(error => console.error('Erro ao carregar dados CSV:', error));
+        }
+    </script>
+
+</body>
+</html>

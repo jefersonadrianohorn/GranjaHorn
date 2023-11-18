@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Form.css">
+
+    <title>Relatórios</title>
+
+<style>  /* Estilos para o cabeçalho */
+    #headerImage {
+        width: 100%;
+        height: 300px;
+        background-size: cover;
+        background-position: center center;
+        border-radius: 15px;
+        position: relative;
+    }
+
+    .title {
+        position: absolute;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 40px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Estilos para os botões */
+    .button-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .button {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        text-align: center;
+        background-color: #59869b;
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .button img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .button-text {
+        font-family: Plus Jakarta Sans;
+        font-size: 14px;
+    }
+    h1 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        text-align: center; /* Centraliza horizontalmente */
+        line-height: 1; /* Centraliza verticalmente */
+    }
+</style>
+</head>
+<body>
+    <div id="divBotaoImagem">
+        <!-- Botão com imagem que redireciona para outra página -->
+        <a id="botaoImagem" href="app.html">
+          <img src="X.png" alt="Imagem do Botão">
+        </a>
+      </div>
+
+    <h1>Relatórios</h1>
+    <hr>
+
+    <div class="button-container">
+        <a href="relatorio-pesquisa-mortes.html" class="button">
+            <img src="morte.svg" alt="Relatório de Morte">
+            <div class="button-text">Relatório de Morte</div>
+        </a>
+        <a href="relatorio-pesquisa-doenças.html" class="button">
+            <img src="Porco doente.svg" alt="Relatório de Doenças">
+            <div class="button-text">Relatório de Doenças</div>
+        </a>
+        
+        
+    </div>
+
+
+</body>
+</html>

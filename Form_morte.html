@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de morte </title>
+</head>
+<link rel="stylesheet" href="Form.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-8IM5O3K1EckvScVeC1A3z2AqbP8jQJKDQO2V9AdW5D2xGz2CQE93nV14XuzMzBQmW3jSTnMbyvYavpN12tCTaQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+  
+
+</html>
+
+<div id="divBotaoImagem">
+  <!-- Botão com imagem que redireciona para outra página -->
+  <a id="botaoImagem" href="app.html">
+    <img src="X.png" alt="Imagem do Botão">
+  </a>
+</div>
+
+<header id="headerImage" style="background-image: url('img1.jpg');">
+  <div class="title">Formulário de Registro de Mortes</div>
+</header>
+
+<form action="https://api.sheetmonkey.io/form/rgLmXNtEr2egnHMYgjjNS2" method="post">
+  <!-- Data da Morte do Animal -->
+  
+  <input type="date" id="data" name="data" required>
+
+
+  <!-- Sexo do Animal -->
+  <label>Sexo do Animal:
+    <select name="Sexo do Animal" required>
+      <option value="Macho">Macho</option>
+      <option value="Fêmea">Fêmea</option>
+    </select>
+  </label>
+
+  <!-- Granja -->
+  <label>Granja:</label>
+  <div class="radio-group">
+      <input type="radio" id="granja1" name="granja" value="granja1" required>
+      <label for="granja1">Granja 1</label>
+  </div>
+  <div class="radio-group">
+      <input type="radio" id="granja2" name="granja" value="granja2" required>
+      <label for="granja2">Granja 2</label>
+  </div>
+
+
+  <!-- Causa da Morte -->
+  <label>Causa da Morte: </label>
+    <select id="Doença" name="Doença" required>
+        <option value="Pneumonia">Pneumonia</option>
+        <option value="Diarreia">Diarreia</option>
+        <option value="Diarreia de sangue">Diarreia de sangue</option>
+        <option value="Encefalite">Encefalite</option>
+        <option value="Artrite/Mancos">Artrite/Mancos</option>
+        <option value="Prolapso/Canibalismo">Prolapso/Canibalismo</option>
+        <option value="Doença de Pele">Doença de Pele</option>
+        <option value="Sacrificado">Sacrificado</option>
+
+    </select>
+
+  <!-- Área de Complemento -->
+  <label>Comentários ou Complementos:</label>
+  <textarea name="Comentários ou Complementos" id="comentarios" rows="4" cols="50"></textarea>
+
+  <!-- Script para inserir "Não Declarado" no campo de Comentários quando nada for escrito -->
+  <script>
+
+
+document.addEventListener('DOMContentLoaded', function () {
+        // Obtém a data atual no formato YYYY-MM-DD
+        var dataAtual = new Date().toISOString().split('T')[0];
+
+        // Define o valor do campo de entrada de data para a data atual
+        document.getElementById('data').value = dataAtual;
+    });
+
+    document.querySelector('form').addEventListener('submit', function() {
+      var comentarios = document.querySelector('#comentarios');
+      if (comentarios.value.trim() === "") {
+        comentarios.value = "Não Declarado";
+      }
+    });
+
+
+  
+
+</script>
+
+  
+  <input type="submit" value="Enviar Relatório" />
+</form>
+</body>
+
+
+</html>
+

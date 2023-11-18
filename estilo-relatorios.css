@@ -1,0 +1,67 @@
+
+#header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#searchContainer {
+    margin: 20px 0;
+}
+
+#searchInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#searchIcon {
+    margin-left: -30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.button-download, .button-print {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.button-download:hover, .button-print:hover {
+    background-color: #45a049;
+}
+
+.Content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#csvTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#csvTable th, #csvTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#csvTable th {
+    background-color: #4CAF50;
+    color: white;
+}

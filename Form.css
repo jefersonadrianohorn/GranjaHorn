@@ -1,0 +1,239 @@
+
+input[type="date"],
+select,
+input[type="radio"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+box-sizing: border-box;
+border: 1px solid #ddd;
+border-radius: 4px;
+}
+
+/* Estilo para os rótulos (labels) */
+label {
+display: block;
+margin-bottom: 8px;
+font-weight: bold; /* Adicionando negrito aos rótulos */
+color: #333;
+}
+
+/* Estilo para os radio buttons e checkboxes */
+input[type="radio"],
+input[type="checkbox"] {
+margin-right: 5px;
+}
+
+/* Estilo para o botão de envio */
+/* Estilo para o botão de envio */
+input[type="submit"] {
+background-color: #3498db; /* Cor azul */
+color: #fff;
+padding: 12px 20px;
+border: none;
+border-radius: 40px;
+cursor: pointer;
+font-size: 16px;
+transition: background-color 0.3s;
+
+/* Centralizando na horizontal e vertical */
+display: block;
+margin: 20px auto 0; /* Adicionando uma margem de 20px no topo, 0 nas laterais e nenhum na parte inferior */
+}
+
+
+
+/* Estilo para a tabela de medicamentos */
+table {
+width: 100%;
+margin-top: 15px;
+border-collapse: collapse;
+}
+
+th, td {
+border: 1px solid #ddd;
+padding: 12px;
+text-align: left;
+}
+
+th {
+background-color: #f2f2f2;
+}
+
+/* Estilo para as células da tabela de medicamentos */
+input[type="checkbox"] + label {
+cursor: pointer;
+display: block;
+}
+
+/* Estilo para o conteúdo readonly */
+.readonly {
+margin: 0;
+}
+
+
+#headerImage {
+width: 100%;
+height: 300px;
+background-size: cover;
+background-position: center center;
+border-radius: 15px;
+position: relative;
+}
+
+body {
+font-family: "Plus Jakarta Sans", sans-serif;
+background: #edf2f9;
+margin: 0;
+}
+
+
+
+form {
+max-width: 600px;
+margin: 20px auto;
+background-color: #fff;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+display: block;
+margin-bottom: 8px;
+color: #555;
+}
+
+input[type="date"],
+select,
+input[type="radio"],
+input[type="radio"]
+
+table {
+border-collapse: collapse;
+width: 100%;
+margin-top: 15px;
+}
+
+th, td {
+border: 1px solid #ddd;
+padding: 10px;
+text-align: left;
+}
+
+th {
+background-color: #f2f2f2;
+}
+
+.readonly {
+border: none;
+background-color: transparent;
+overflow: hidden;
+outline: none;
+padding: 8px;
+width: 100%;
+white-space: pre-wrap;
+}
+
+.title {
+position: absolute;
+font-size: 40px;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+
+}
+
+
+/* Estilo adicional para radio buttons ficarem ao lado um do outro */
+div.radio-group {
+display: inline-block;
+}
+
+/* Estilizando radio buttons */
+input[type="radio"] {
+display: none;
+}
+
+/* Estilizando o rótulo (label) para os radio buttons */
+.radio-group label {
+position: relative;
+padding-left: 35px; /* Adicionando espaço para o círculo ou quadrado do botão */
+cursor: pointer;
+display: inline-block;
+}
+
+.radio-group label:before {
+content: '';
+position: absolute;
+left: 0;
+top: 50%;
+transform: translateY(-50%);
+width: 20px; /* Tamanho do círculo ou quadrado do botão */
+height: 20px;
+border-radius: 50%; /* Para radio buttons, use 50% para um círculo */
+background: #cbd1d8;
+border: 2px solid #555;
+transition: background 0.3s;
+}
+
+/* Mudando a cor do círculo ou quadrado do botão quando estiver marcado */
+.radio-group input:checked + label:before {
+background: #40e0d0;
+}
+@media only screen and (max-width: 600px) {
+body {
+font-size: 14px;
+}
+
+form {
+max-width: 100%;
+}
+
+input[type="submit"] {
+font-size: 14px;
+}
+
+.title {
+font-size: 8vw; /* Ajuste o valor conforme necessário */
+}
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Cantos arredondados */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+.icon {
+    margin-right: 10px;
+}
+stilize a div do botão com imagem */
+  #divBotaoImagem {
+    display: inline-block;
+  }
+
+  #botaoImagem {
+   
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block; /* Para que a div se ajuste ao tamanho da imagem */
+  }
+
+  #botaoImagem img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
